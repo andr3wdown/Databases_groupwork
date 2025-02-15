@@ -7,5 +7,5 @@ CREATE TABLE HOTEL(
 
 INSERT INTO HOTEL(HotelName, Address, FrontDeskNR)
 VALUES
-    ("Trivago", "Joulukyl‰nkuja 2, Korvatunturi 80010", "+358100000000"),
+    ("Trivago", "Joulukyl√§nkuja 2, Korvatunturi 80010", "+358100000000"),
     ("Korvatunturi", "Korvatunturintie 1, Korvatunturi 80000", "+358100000001");
