@@ -1,12 +1,14 @@
 import re
 import os
+import random as rnd
+from hotels_creator import create_hotels
 from phone_number_generator import generate_phone_number
 from name_generator import generate_name
 
-def create_table_sql(template_path, output_path, operation):
+def create_table_sql(template_path, output_path, operation, iterations):
     insert = ""
     ##add insert values
-    operation()
+    insert = operation(insert, iterations)
     
     with open(template_path, "r") as f:
         content = f.read()
@@ -15,11 +17,39 @@ def create_table_sql(template_path, output_path, operation):
     with open(output_path, "w") as f:
         f.write(content)
 
-if __name__ == "__main__":
-    user_input = ""
-    while os.path.isfile(f"templates/{user_input}.sql") == False:
-        user_input = input("Enter table name: ")
+def create_rooms(insert, num_rooms):
+    for i in range(num_rooms):
+        hotel_id = rnd.randint(1, 2)
+        capacity = rnd.randint(2, 8)
+        daily_price = capacity * 150
+        room_phone_nr = generate_phone_number()
     
-    path = f"templates/{user_input}.sql"
-    output = f"output/{user_input}.sql"
-    create_table_sql()            
+        sql = f'    ({hotel_id}, {capacity}, {daily_price}, "{room_phone_nr}")'
+        if i != num_rooms - 1:
+            sql += ",\n"
+        else:
+            sql += ";"
+        insert += sql
+    return insert
+
+def create_person(insert, num_persons):
+    for i in range(num_persons):
+        f_name = generate_name(rnd.randint(4, 8))
+        l_name = generate_name(rnd.randint(4, 8))
+        phone_number = generate_phone_number()
+        sql = f'    ("{f_name}", "{l_name}", "{phone_number}")'
+        if i != num_persons - 1:
+            sql += ",\n"
+        else:
+            sql += ";"
+        insert += sql
+    return insert
+
+if __name__ == "__main__":
+    create_hotels()
+    create_table_sql("templates/rooms.sql", "output/rooms.sql", create_rooms, 20)
+    create_table_sql("templates/employees.sql", "output/employees.sql", create_person, 20)
+    create_table_sql("templates/customers.sql", "output/customers.sql", create_person, 50)
+    
+    
+                
