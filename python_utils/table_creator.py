@@ -47,9 +47,9 @@ def create_person(insert, num_persons):
 
 if __name__ == "__main__":
     create_hotels()
-    create_table_sql("templates/rooms.sql", "output/rooms.sql", create_rooms, 20)
-    create_table_sql("templates/employees.sql", "output/employees.sql", create_person, 20)
-    create_table_sql("templates/customers.sql", "output/customers.sql", create_person, 50)
+    create_table_sql("templates/rooms.sql", "output/rooms.sql", create_rooms, 30)
+    create_table_sql("templates/employees.sql", "output/employees.sql", create_person, 10)
+    create_table_sql("templates/customers.sql", "output/customers.sql", create_person, 30)
     
     
                 

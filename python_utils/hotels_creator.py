@@ -2,7 +2,7 @@ import re
 from phone_number_generator import generate_phone_number
 
 names = ["Trivago", "Korvatunturi"]
-adresses = ["Tikkuraitinkuja 2, Vantaa 01350", "Korvatunturintie 1, Korvatunturi 80000"]
+adresses = ["Joulukylänkuja 2, Korvatunturi 80010", "Korvatunturintie 1, Korvatunturi 80000"]
 def create_hotels():
     insert = ""
     for i in range(len(names)):
