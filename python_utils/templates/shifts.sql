@@ -1,0 +1,12 @@
+CREATE TABLE SHIFT(
+    RoomID INT NOT NULL,
+    EmployeeID INT NOT NULL,
+    StartDate DATE NOT NULL,
+    StartTime TIME NOT NULL,
+    FOREIGN KEY (RoomID) REFERENCES ROOM(RoomID),
+    FOREIGN KEY (EmployeeID) REFERENCES EMPLOYEE(EmployeeID)
+);
+
+INSERT INTO SHIFT(RoomID, EmployeeID, StartDate, StartTime)
+VALUES
+_inserts_
