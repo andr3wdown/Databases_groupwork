@@ -19,7 +19,7 @@ def create_hotels():
         content = f.read()
         
     content = re.sub("_inserts_", insert, content)
-    with open("output/hotels.sql", "w") as f:
+    with open("output/hotels.sql", "w", encoding="utf-8") as f:
         f.write(content)
 
 if __name__ == "__main__":

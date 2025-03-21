@@ -25,7 +25,7 @@ def create_rooms(insert, num_rooms):
         capacity = rnd.randint(2, 8)
         daily_price = capacity * 150
         room_phone_nr = generate_phone_number()
-        room = {"room_id" : i,"hotel_id": hotel_id, "capacity": capacity, "daily_price": daily_price, "room_phone_nr": room_phone_nr}
+        room = {"room_id" : i + 1,"hotel_id": hotel_id, "capacity": capacity, "daily_price": daily_price, "room_phone_nr": room_phone_nr}
         rooms.append(room)
         sql = f'    ({hotel_id}, {capacity}, {daily_price}, "{room_phone_nr}")'
         if i != num_rooms - 1:
@@ -41,7 +41,7 @@ def create_person(insert, num_persons):
         f_name = generate_name(rnd.randint(4, 8))
         l_name = generate_name(rnd.randint(4, 8))
         phone_number = generate_phone_number()
-        person = {"person_id": i, "f_name": f_name, "l_name": l_name, "phone_number": phone_number}
+        person = {"person_id": i + 1, "f_name": f_name, "l_name": l_name, "phone_number": phone_number}
         persons.append(person)
         sql = f'    ("{f_name}", "{l_name}", "{phone_number}")'
         if i != num_persons - 1:
@@ -59,7 +59,6 @@ def create_shifts(reservation, start_date, end_date):
     return shifts
     
 def create_reservations_and_shifts(templates, outputs, rooms, employees, customers):
-    reservations = []
     shifts = []
     rnd.shuffle(rooms)
     reservation_insert = ""
@@ -75,7 +74,6 @@ def create_reservations_and_shifts(templates, outputs, rooms, employees, custome
         reservation_insert += sql
         
         reservation = {"customer_id": customer["person_id"], "room_id": room["room_id"], "start_date": start_date, "end_date": end_date}
-        reservations.append(reservation)
         shifts += create_shifts(reservation, sd, ed)
 
         
@@ -96,7 +94,6 @@ def create_reservations_and_shifts(templates, outputs, rooms, employees, custome
         reservation_insert += sql
         
         reservation = {"customer_id": customer["person_id"], "room_id": room["room_id"], "start_date": start_date, "end_date": end_date}
-        reservations.append(reservation)
         shifts += create_shifts(reservation, sd, ed)
     
     with open(templates[0], "r") as f:
@@ -123,7 +120,7 @@ def create_reservations_and_shifts(templates, outputs, rooms, employees, custome
             if current_employee == len(employees):
                 current_employee = 0
                 current_time += 2
-            shifts_dict[date][i]["employee_id"] = current_employee
+            shifts_dict[date][i]["employee_id"] = current_employee + 1
             shifts_dict[date][i]["time"] = f"{current_time}:00"
             current_employee += 1
             

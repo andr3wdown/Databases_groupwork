@@ -7,13 +7,13 @@ CREATE TABLE EMPLOYEE(
 
 INSERT INTO EMPLOYEE(FirstName, LastName, PhoneNr)
 VALUES
-    ("zemoc", "besabe", "+358100000032"),
-    ("dosivi", "labypi", "+358100000033"),
-    ("liwozofu", "nyvani", "+358100000034"),
-    ("pegi", "gepuvaki", "+358100000035"),
-    ("quwi", "pyhoqomi", "+358100000036"),
-    ("coza", "gahyk", "+358100000037"),
-    ("bepenubo", "najoqeb", "+358100000038"),
-    ("qojedyza", "xunoju", "+358100000039"),
-    ("qugu", "jehyvax", "+358100000040"),
-    ("qybosuxe", "raxax", "+358100000041");
+    ("zopacecy", "xaqi", "+358100000140"),
+    ("nihej", "pipotex", "+358100000141"),
+    ("base", "retirequ", "+358100000142"),
+    ("cytyji", "ryqite", "+358100000143"),
+    ("xuguvy", "rofo", "+358100000144"),
+    ("cosa", "viku", "+358100000145"),
+    ("jetawa", "nugaxo", "+358100000146"),
+    ("gyki", "kybi", "+358100000147"),
+    ("jodoseva", "lycew", "+358100000148"),
+    ("nipinita", "xodesov", "+358100000149");
