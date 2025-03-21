@@ -4,7 +4,6 @@ import os
 def combine_files(path):
     files = ["hotels.sql", "rooms.sql", "customers.sql", "employees.sql", "reservations.sql", "shifts.sql"]
     files = [os.path.join(path, f) for f in files]
-    files.sort(key=os.path.getctime)  # Sort files by creation time
     with open(os.path.join(path, 'combined.sql'), 'w') as outfile:
         for fname in files:
             with open(fname) as infile:
