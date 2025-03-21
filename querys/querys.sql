@@ -8,7 +8,7 @@ FROM ROOM
 WHERE DailyPrice > 1000 OR Capacity > 6;
 
 -- 3. selects all the reservations that start on '2025-03-10' and end on '2025-03-15'.
-SELECT * FROM RESERVATION;
+SELECT * FROM RESERVATION
 WHERE StartDate = '2025-03-10' AND EndDate = '2025-03-15';
 
 -- 4. shows the total number of customers.
